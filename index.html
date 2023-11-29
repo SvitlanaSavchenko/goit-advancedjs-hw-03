@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 10</title>
-    <script type="module" crossorigin src="/goit-advancedjs-hw-03/commonHelpers.js"></script>
-  </head>
-  <body>
-    <select class="breed-select"></select>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>goit-advancedjs-hw-03</title>
+  <script type="module" crossorigin src="/goit-advancedjs-hw-03/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-03/assets/vendor-eb9be37d.js">
+  <link rel="stylesheet" href="/goit-advancedjs-hw-03/assets/vendor-e5212ee8.css">
+  <link rel="stylesheet" href="/goit-advancedjs-hw-03/assets/index-15edd0dd.css">
+</head>
+
+<body>
+  <div class="container">
+    <select class="breed-select" disabled></select>
     <p class="loader">Loading data, please wait...</p>
     <p class="error">Oops! Something went wrong! Try reloading the page!</p>
-    <div class="cat-info"></div>
+    <div class="cat-info" style="display: none;">
+      <img class="cat-image" alt="Cat Image" />
+      <h2 class="breed-name"></h2>
+      <p class="description"></p>
+      <p class="temperament"></p>
+    </div>
+  </div>
+  
+  
+</body>
 
-    
-  </body>
 </html>
