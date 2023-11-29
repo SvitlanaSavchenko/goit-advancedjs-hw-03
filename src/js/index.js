@@ -17,6 +17,9 @@ const temperament = document.querySelector('.temperament');
 // Відображення завантажувача при початковому завантаженні
 loader.style.display = 'block';
 
+// Ініціалізація SlimSelect для стилізації селекту
+new SlimSelect('.breed-select');
+
 // Отримання колекції порід та заповнення вибірки порід
 fetchBreeds()
   .then(breeds => {
@@ -41,6 +44,8 @@ breedSelect.addEventListener('change', event => {
   const selectedBreedId = event.target.value;
   if (selectedBreedId) {
     loader.style.display = 'block'; // Відображення завантажувача
+    catInfo.style.display = 'none'; // Приховання блоку інформації про кота
+
     // Отримання інформації про кота за обраною породою
     fetchCatByBreed(selectedBreedId)
       .then(catData => {
@@ -56,6 +61,12 @@ breedSelect.addEventListener('change', event => {
       .catch(error => {
         loader.style.display = 'none'; // Приховання завантажувача
         errorDisplay.style.display = 'block'; // Відображення повідомлення про помилку
+        // Відображення повідомлення про помилку за допомогою iziToast
+        iziToast.error({
+          title: 'Error',
+          message: 'Failed to fetch cat data. Please try again.',
+          position: 'topRight',
+        });
         console.error('Error fetching cat by breed:', error);
       });
   }
