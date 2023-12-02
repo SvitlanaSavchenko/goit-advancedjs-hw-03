@@ -1,4 +1,3 @@
-// index.js
 import SlimSelect from 'slim-select';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -14,7 +13,8 @@ const breedName = document.querySelector('.breed-name');
 const description = document.querySelector('.description');
 const temperament = document.querySelector('.temperament');
 
-// Відображення завантажувача при початковому завантаженні
+// Приховання селекту та відображення завантажувача при початковому завантаженні
+breedSelect.style.display = 'none';
 loader.style.display = 'block';
 
 // Ініціалізація SlimSelect для стилізації селекту
@@ -31,11 +31,14 @@ fetchBreeds()
     });
     // Активація вибірки порід після завершення завантаження
     breedSelect.removeAttribute('disabled');
-    loader.style.display = 'none'; // Приховання завантажувача
+    // Приховання завантажувача та відображення селекту
+    loader.style.display = 'none';
+    breedSelect.style.display = 'inline-block';
   })
   .catch(error => {
-    loader.style.display = 'none'; // Приховання завантажувача
-    errorDisplay.style.display = 'block'; // Відображення повідомлення про помилку
+    // Приховання завантажувача та відображення повідомлення про помилку
+    loader.style.display = 'none';
+    errorDisplay.style.display = 'block';
     console.error('Error fetching breeds:', error);
   });
 
